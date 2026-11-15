@@ -148,7 +148,7 @@ file is the release. It contains no packs or settings. The same executable runs
 in the background when Windows starts it with `--background`. The version shown
 in Diagnostics comes from `version.py`.
 
-## Using DesktopPortal
+## Feature reference
 
 Select a pack and **Activate**, or choose **Bind tag** and scan within 30 seconds. Binding does not activate the pack; remove and rescan the tag. Unknown tags do nothing. Files selected from anywhere are copied into the pack. Wallpaper and sound selection dialogs let each file be previewed and included or excluded from random rotation. Cursor mappings expose all 15 Windows cursor states, show animated previews, mirror individual cursors horizontally or vertically, and can auto-detect a folder.
 
@@ -166,17 +166,17 @@ Disable a pack to prevent manual and NFC activation. Collections appear as colla
 
 **Delete selected pack** is available under **More**. It confirms before removing the pack folder, tag bindings and collection memberships.
 
-Enable **Start DesktopPortal at login** to register an immediate Task Scheduler logon trigger. It launches `pythonw.exe` directly without a terminal or Windows' delayed startup-app queue. Closing the GUI hides it while the listener and tray icon continue running. Launch `main.py` again or use the tray to reopen it. The tray also pauses NFC detection, restores the desktop and quits. **Diagnostics** shows platform capabilities, reader state, present tags, recent activity and the background log.
+Enable **Start DesktopPortal at login** to register an immediate Task Scheduler logon trigger. It starts the app hidden in the tray, without a terminal or Windows' delayed startup-app queue (the released executable runs with `--background`; from source it uses `pythonw.exe`). Closing the GUI hides it while the listener and tray icon continue running. Launch the app again or use the tray to reopen it. The tray also pauses NFC detection, restores the desktop and quits. **Diagnostics** shows platform capabilities, reader state, present tags, recent activity and the background log.
 
 If PC/SC or the reader is unavailable at sign-in, DesktopPortal retries every three seconds. A snapshot in `data/desktop-state.json` allows the original wallpaper and cursors to be restored after a crash.
 
 During Windows shutdown/logoff or Linux termination, DesktopPortal restores the original wallpaper and cursors before exiting. After an abrupt power loss or crash, the background process automatically restores the saved snapshot on its next launch.
 
-## Linux foundation
+## Linux (experimental)
 
 Pack, collection, NFC, sound, tray and GUI code is portable. GNOME, Cinnamon and Unity wallpaper changes use `gsettings`; KDE uses `plasma-apply-wallpaperimage`. Per-role `.ani`/`.cur` cursor mapping is a Windows feature and is skipped on Linux. Linux startup uses `~/.config/autostart/DesktopPortal.desktop`.
 
-## Standalone cursor converter
+## Cursor tools
 
 ### Apply cursors on Ubuntu/GNOME
 
@@ -205,7 +205,10 @@ current OS only when needed. Source files are retained in the pack via
 `cursor_sources`; `cursors` maps roles to the prepared files. Conversion results
 are reused until the source changes. Linux cursor names such as `left_ptr`,
 `watch`, and `xterm` are recognized, including extensionless files. Converting
-assets does not yet enable Linux cursor activation.
+assets in the app does not activate cursors on Linux; use
+`linux_cursor.py apply` for that.
+
+### Convert cursor files
 
 On Ubuntu, open the converter window with:
 
@@ -237,7 +240,7 @@ compatible size when size variants cannot share one Windows animation timeline.
 Windows output is limited to images up to 256 pixels. ANI files
 with raw bitmap frames or embedded ICO frames without hotspots are unsupported.
 
-## Checks
+## Tests
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
