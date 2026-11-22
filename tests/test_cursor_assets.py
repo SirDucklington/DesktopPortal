@@ -19,7 +19,7 @@ class CursorAssetTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        self.root = Path(self.temporary.name).resolve()
         self.pack_root = self.root / 'packs' / 'demo'
         self.pack_root.mkdir(parents=True)
         self.source = self.pack_root / 'Arrow.cur'

@@ -311,7 +311,7 @@ class PackTests(unittest.TestCase):
 
     def test_cleanup_only_removes_unreferenced_assets(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             folder = root / 'demo'
             folder.mkdir()
             keep = folder / 'wallpapers/keep.png'
