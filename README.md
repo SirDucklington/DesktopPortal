@@ -1,6 +1,6 @@
 # DesktopPortal
 
-[![Tests](https://github.com/ruslanD05/DesktopPortal/actions/workflows/tests.yml/badge.svg)](https://github.com/ruslanD05/DesktopPortal/actions/workflows/tests.yml)
+[![Tests](https://github.com/SirDucklington/DesktopPortal/actions/workflows/tests.yml/badge.svg)](https://github.com/SirDucklington/DesktopPortal/actions/workflows/tests.yml)
 
 > **Beta.** Windows is the main platform. Linux support is experimental.
 
@@ -25,7 +25,7 @@ export and share their own theme packs — with or without NFC hardware.
 ## Install (Windows)
 
 1. Download `DesktopPortal.exe` from the
-   [Releases](https://github.com/ruslanD05/DesktopPortal/releases) page.
+   [Releases](https://github.com/SirDucklington/DesktopPortal/releases) page.
 2. Put it in a folder of its own that you can write to, such as
    `Documents\DesktopPortal`. The app creates its `packs` and `data` folders
    next to the executable, so do not keep it on the Desktop or in
@@ -133,13 +133,13 @@ disk and music must be a local file. The only socket it opens is on
 
 Open **More > Diagnostics…**, click **Copy for bug report**, and paste the
 result into a new
-[issue](https://github.com/ruslanD05/DesktopPortal/issues/new/choose). The
+[issue](https://github.com/SirDucklington/DesktopPortal/issues/new/choose). The
 report shows the app version, platform, NFC reader state and recent activity.
 
 ## Run from source
 
 ```powershell
-git clone https://github.com/ruslanD05/DesktopPortal.git
+git clone https://github.com/SirDucklington/DesktopPortal.git
 cd DesktopPortal
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
