@@ -1,5 +1,7 @@
 # DesktopPortal
 
+[![Tests](https://github.com/ruslanD05/DesktopPortal/actions/workflows/tests.yml/badge.svg)](https://github.com/ruslanD05/DesktopPortal/actions/workflows/tests.yml)
+
 > **Beta.** Windows is the main platform. Linux support is experimental.
 
 Make themed packs of wallpapers, cursors, sounds and background music, then
@@ -7,6 +9,18 @@ switch between them from the app, a tray menu, global hotkeys or a random
 "theme wheel". An NFC reader is optional: tap a tag to switch packs.
 
 ![DesktopPortal main window](docs/screenshot.png)
+
+## Why I built this
+
+This started with six LEGO My Little Pony figurines, a sheet of cheap NTAG213
+NFC stickers on their bases, and a USB smart-card reader on my desk. I wanted a
+"toys-to-life" portal for my PC: place Rainbow Dash or Pinkie Pie on the reader
+and have the whole desktop transform at once — custom animated cursors for all
+15 Windows pointer states, a character voice line, and matching wallpaper.
+
+After building a quick prototype script, I decided to rewrite it from scratch
+into a clean, general-purpose desktop tool where anyone can build, preview,
+export and share their own theme packs — with or without NFC hardware.
 
 ## Install (Windows)
 
